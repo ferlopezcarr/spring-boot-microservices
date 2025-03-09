@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Product API
+  description: Product API
+tags:
+  - name: products
+    description: Products
+paths:
+  /product:
+    post:
+      tags:
+        - products
+      operationId: createProduct
+      summary: Create a new product
+      description: Create a new product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateProductRequest"
+      responses:
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductResponse"
+
+components:
+  schemas:
+    CreateProductRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Product Name"
+        description:
+          type: string
+          example: "Product Description"
+        price:
+          type: number
+          example: 9.99
+      required:
+        - name
+        - price
+
+    ProductResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "00000000-0000-0000-0000-000000000000"
+        name:
+          type: string
+          example: "Product Name"
+        description:
+          type: string
+          example: "Product Description"
+        price:
+          type: number
+          example: 9.99
+      required:
+        - id
+        - name
+        - price
