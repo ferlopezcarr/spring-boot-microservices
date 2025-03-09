@@ -42,6 +42,7 @@ components:
         price:
           type: number
           example: 9.99
+          minimum: 0.01
       required:
         - name
         - price

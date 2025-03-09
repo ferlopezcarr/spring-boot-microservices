@@ -13,7 +13,7 @@ internal fun NewProduct.toEntityModel(): ProductEntity =
 
 internal fun ProductEntity.toDomainModel(): Product =
     Product(
-        id = this.id!!,
+        id = this.id,
         name = this.name,
         description = this.description,
         price = this.price,

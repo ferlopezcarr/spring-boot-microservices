@@ -1,1 +1,4 @@
-docker run -v C:\Workspace\spring-boot-microservices\product-service\src\main\resources\db\changelog liquibase --url="jdbc:mongodb://localhost:27017/product-service" --changeLogFile=db.changelog-master.yaml --username=root --password=password
+databaseChangeLog:
+  - include:
+      file: ./changes/001_initial_setup.yaml
+      relativeToChangelogFile: true

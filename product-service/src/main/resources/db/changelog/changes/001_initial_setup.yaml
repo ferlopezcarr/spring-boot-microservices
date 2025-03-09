@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: orders-collection
+      author: "ferlopezcarr"
+      changes:
+        - createCollection:
+            collectionName: "orders"
+            fields:
+              - field:
+                  name: "_id"
+                  type: "objectId"
+              - field:
+                  name: "name"
+                  type: "string"
+                  unique: true
+              - field:
+                  name: "description"
+                  type: "string"
+                  constraints:
+                    nullable: true
+              - field:
+                  name: "price"
+                  type: "decimal"

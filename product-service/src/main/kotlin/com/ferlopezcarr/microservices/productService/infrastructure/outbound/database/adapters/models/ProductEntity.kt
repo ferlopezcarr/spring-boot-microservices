@@ -9,7 +9,7 @@ import java.util.UUID
 @Document(value = "products")
 data class ProductEntity(
     @Id
-    val id: UUID? = UUID.randomUUID(),
+    val id: UUID = UUID.randomUUID(),
     @Indexed(unique = true)
     val name: String,
     val description: String? = null,
