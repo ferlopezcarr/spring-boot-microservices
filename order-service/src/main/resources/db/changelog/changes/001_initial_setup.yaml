@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: products-table
+      author: "ferlopezcarr"
+      changes:
+        - createTable:
+            tableName: "orders"
+            columns:
+              - column:
+                  name: "id"
+                  type: "uuid"
+                  constraints:
+                    primary_key: true
+                    nullable: false
+              - column:
+                  name: "order_number"
+                  type: "uuid"
+                  constraints:
+                    unique_key: true
+                    nullable: false
+              - column:
+                  name: "sku_code"
+                  type: "varchar"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: "price"
+                  type: "decimal"
+                  constraints:
+                    nullable: false

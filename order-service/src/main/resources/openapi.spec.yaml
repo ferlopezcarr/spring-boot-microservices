@@ -1,0 +1,70 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Order API
+  description: Order API
+tags:
+  - name: orders
+    description: Orders
+paths:
+  /order:
+    post:
+      tags:
+        - orders
+      operationId: createOrder
+      summary: Create a new order
+      description: Create a new order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateOrderRequest"
+      responses:
+        '201':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrderResponse"
+
+components:
+  schemas:
+    CreateOrderRequest:
+      type: object
+      properties:
+        skuCode:
+          type: string
+          example: "123456789"
+          minLength: 1
+          maxLength: 9
+        price:
+          type: number
+          example: 9.99
+          minimum: 0.01
+      required:
+        - skuCode
+        - price
+
+    OrderResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "00000000-0000-0000-0000-000000000000"
+        orderNumber:
+          type: string
+          format: uuid
+          example: "00000000-0000-0000-0000-000000000000"
+        skuCode:
+          type: string
+          example: "123456789"
+        price:
+          type: number
+          example: 9.99
+      required:
+        - id
+        - orderNumber
+        - skuCode
+        - price
