@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a Spring Boot-based microservices application, designed to demonstrate the use of microservices
+This monorepo project is a Spring Boot-based microservices application, designed to demonstrate the use of microservices
 architecture in a real-world scenario.
 
 ## Technologies Used
