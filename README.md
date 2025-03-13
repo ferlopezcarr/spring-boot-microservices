@@ -12,9 +12,8 @@ architecture in a real-world scenario.
 * **Build Tool:** Gradle
 * **Containerization:** Docker
 * **Authentication:** Keycloak
-* **Databases:**
-    * MongoDB
-    * PostgreSQL
+* **Databases:** MongoDB, PostgreSQL
+* **Observability:** Prometheus, Grafana
 
 ## Important Tools
 
@@ -30,6 +29,10 @@ architecture in a real-world scenario.
     * Mockito: Provides support for mocking objects in tests
     * Wiremock: Provides support for mocking HTTP requests in tests
     * Testcontainers: Provides support for testing the application using Docker containers
+* **Observability**:
+    * Micrometer: Provides support for creating metrics
+    * Prometheus: Provides support for exposing metrics
+    * Grafana: Provides support for monitoring the application
 
 ## Microservices
 
@@ -42,6 +45,12 @@ The application follows a microservices architecture, with the following compone
 * **Notification Service:** Handles the sending of notifications for orders
 
 Each microservice is built using **Hexagonal Architecture** and is responsible for a specific domain of the application.
+
+## Available Services
+
+* [API Gateway](http://localhost:8080)
+* [Prometheus](http://localhost:9090)
+* [Grafana](http://localhost:3000)
 
 ## Application Documentation
 

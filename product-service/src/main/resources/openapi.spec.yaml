@@ -7,6 +7,31 @@ tags:
   - name: products
     description: Products
 paths:
+  /product/{id}:
+    get:
+      tags:
+        - products
+      operationId: getProduct
+      summary: Get a product by ID
+      description: Get a product by ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the product to retrieve
+          required: true
+          schema:
+            type: string
+            format: uuid
+            example: "00000000-0000-0000-0000-000000000000"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductResponse"
+        '404':
+          description: Product not found
   /product:
     post:
       tags:
@@ -27,6 +52,24 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProductResponse"
+        '400':
+          description: Bad request
+  /products:
+    get:
+      tags:
+        - products
+      operationId: getAllProducts
+      summary: Get all products
+      description: Get all products
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductResponse"
 
 components:
   schemas:
